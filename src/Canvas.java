@@ -35,11 +35,11 @@ public class Canvas extends JPanel{
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 		
-		g.setColor(Color.BLUE);
-		g.fillRect(400, 300, 300, 300);
-		
-		g.setColor(new Color(190,81,215));
-		g.fillRect(205, 200, 100, 100);
+//		g.setColor(Color.BLUE);
+//		g.fillRect(400, 300, 300, 300);
+//		
+//		g.setColor(new Color(190,81,215));
+//		g.fillRect(205, 200, 100, 100);
 		
 		
 		
