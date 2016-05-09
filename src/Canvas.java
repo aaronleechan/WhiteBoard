@@ -13,27 +13,33 @@ public class Canvas extends JPanel{
 	JLabel add;
 	JButton Rect, Oval, Line, Text, SetColor, EdwardianScript, moveToFront, moveToBack, removeShape;
 	JTextField text;
-	int row = 0;
+	DShape dShape;
+	DOval dOval;
+	DLine dLine;
+	DText dText;
 	
 	public void Canvas()
 	{
 		gui = new JPanel(new BorderLayout());
 		repaint(); // call paintComponent method
-		
-		
+			
 		
 	}
 	
+	// paint component should loop through all the shapes and draw them
+	// Shapes are not subclasses of JComponent
+	// shapes will fill the view row, representing sth to draw. don't store data itself
+	
 	public void paintComponent(Graphics g){
-		
-		
-		
-		
-		
-		
-		
+			
 		super.paintComponent(g);
+		this.setBackground(Color.WHITE);
 		
+		g.setColor(Color.BLUE);
+		g.fillRect(400, 300, 300, 300);
+		
+		g.setColor(new Color(190,81,215));
+		g.fillRect(205, 200, 100, 100);
 		
 	}
 	
@@ -42,13 +48,12 @@ public class Canvas extends JPanel{
 	public void drawingField()
 	{
 		JPanel drawing = new JPanel();
-		drawing.setLayout(new BoxLayout(drawing, BoxLayout.Y_AXIS));
+		drawing.setLayout(new FlowLayout());
 		drawing.setBorder(BorderFactory.createRaisedBevelBorder());
 		drawing.setSize(400,400);
+
 		
-		
-		
-		gui.add(drawing,BorderLayout.EAST);
+		gui.add(drawing,BorderLayout.CENTER);
 	}
 	
 	public void controlField()
@@ -67,7 +72,8 @@ public class Canvas extends JPanel{
 		Box horizontal5 = Box.createHorizontalBox();
 		Box verticalBox = Box.createVerticalBox();
 		
-		add = new JLabel("Add");				
+		add = new JLabel("Add");	
+		
 		Rect = new JButton("Rect");	
 		Oval = new JButton("Oval");
 		Text = new JButton("Text");		

@@ -24,14 +24,15 @@ public class Whiteboard extends JFrame {
 	
 	public static void main (String[]args)
 	{
-		Whiteboard theFrame = new Whiteboard("White Board");		
+		Whiteboard theFrame = new Whiteboard("White Board");
 		canvas = new Canvas();
 		canvas.Canvas();
 		canvas.controlField();
 		canvas.drawingField();
-		theFrame.add(canvas);
+		//theFrame.add(canvas);
 		theFrame.add(canvas.gui);
 		theFrame.setVisible(true);
+		theFrame.pack();
 	}
 	
 
