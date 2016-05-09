@@ -13,6 +13,7 @@ public class Canvas extends JPanel{
 	JLabel add;
 	JButton Rect, Oval, Line, Text, SetColor, EdwardianScript, moveToFront, moveToBack, removeShape;
 	JTextField text;
+	int row = 0;
 	
 	public void Canvas()
 	{
@@ -56,13 +57,14 @@ public class Canvas extends JPanel{
 		
 		JPanel controlCenter = new JPanel();
 		controlCenter.setLayout(new BoxLayout(controlCenter,BoxLayout.Y_AXIS));
-		controlCenter.setSize(400,400);
+		controlCenter.setSize(400,300);
 		controlCenter.setAlignmentX(Box.LEFT_ALIGNMENT);
 		
 		Box horizontal1 = Box.createHorizontalBox();	
 		Box horizontal2 = Box.createHorizontalBox();
 		Box horizontal3 = Box.createHorizontalBox();
 		Box horizontal4 = Box.createHorizontalBox();
+		Box horizontal5 = Box.createHorizontalBox();
 		Box verticalBox = Box.createVerticalBox();
 		
 		add = new JLabel("Add");				
@@ -76,29 +78,46 @@ public class Canvas extends JPanel{
 		moveToFront = new JButton("Move To Front");
 		moveToBack = new JButton("Move To Back");	
 		removeShape = new JButton("Remove Shape");
+		
+		JPanel tableLayout = new JPanel();
+		tableLayout.setLayout(new GridLayout(0,4));
+		tableLayout.setSize(400,100);
+		JLabel x = new JLabel("X");
+		JLabel y = new JLabel("Y");
+		JLabel width = new JLabel("Width");
+		JLabel height = new JLabel("Height");
+		
+		tableLayout.add(x);			
+		tableLayout.add(y);
+		tableLayout.add(width);		
+		tableLayout.add(height);
+		
 			
 		horizontal1.add(add);
 		horizontal1.add(Rect);
-		horizontal1.add(Oval);
+		horizontal1.add(Oval);		
 		horizontal1.add(Text);
 		
 		horizontal2.add(SetColor);
 		
-		horizontal3.add(text);
+		horizontal3.add(text);		
 		horizontal3.add(EdwardianScript);
 		
 		horizontal4.add(moveToFront);
 		horizontal4.add(moveToBack);
 		horizontal4.add(removeShape);
 		
+		horizontal5.add(tableLayout);
+		
 		
 		verticalBox.add(horizontal1);
-		verticalBox.add(Box.createVerticalStrut(100));
+		verticalBox.add(Box.createVerticalStrut(80));
 		verticalBox.add(horizontal2);
-		verticalBox.add(Box.createVerticalStrut(100));
+		verticalBox.add(Box.createVerticalStrut(80));
 		verticalBox.add(horizontal3);
-		verticalBox.add(Box.createVerticalStrut(100));
+		verticalBox.add(Box.createVerticalStrut(80));
 		verticalBox.add(horizontal4);
+		verticalBox.add(horizontal5);
 		
 		for(Component comp: verticalBox.getComponents())
 		{
