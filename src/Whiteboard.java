@@ -15,10 +15,8 @@ public class Whiteboard extends JFrame {
 	public  Whiteboard(String title)
 	{
 		super(title);
-		setSize (800, 800);
-		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-		
-
+		setSize(800, 800);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	

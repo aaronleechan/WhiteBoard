@@ -41,6 +41,8 @@ public class Canvas extends JPanel{
 		g.setColor(new Color(190,81,215));
 		g.fillRect(205, 200, 100, 100);
 		
+		
+		
 	}
 	
 	
@@ -48,10 +50,12 @@ public class Canvas extends JPanel{
 	public void drawingField()
 	{
 		JPanel drawing = new JPanel();
-		drawing.setLayout(new FlowLayout());
+		drawing.setLayout(new BoxLayout(drawing,BoxLayout.Y_AXIS));
 		drawing.setBorder(BorderFactory.createRaisedBevelBorder());
 		drawing.setSize(400,400);
-
+		Canvas p = new Canvas();
+		
+		drawing.add(p);
 		
 		gui.add(drawing,BorderLayout.CENTER);
 	}
