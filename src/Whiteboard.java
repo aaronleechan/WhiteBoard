@@ -27,7 +27,7 @@ public class Whiteboard extends JFrame {
 		canvas.Canvas();
 		canvas.controlField();
 		canvas.drawingField();
-		//theFrame.add(canvas);
+
 		theFrame.add(canvas.gui);
 		theFrame.setVisible(true);
 		theFrame.pack();

@@ -17,7 +17,8 @@ public class Canvas extends JPanel{
 	DOval dOval;
 	DLine dLine;
 	DText dText;
-	
+	int x, y, width,height;
+	Color colour; 
 	public void Canvas()
 	{
 		gui = new JPanel(new BorderLayout());
@@ -28,20 +29,16 @@ public class Canvas extends JPanel{
 	
 	// paint component should loop through all the shapes and draw them
 	// Shapes are not subclasses of JComponent
-	// shapes will fill the view row, representing sth to draw. don't store data itself
+	// shapes will fill the view row, representing something to draw. don't store data itself
 	
-	public void paintComponent(Graphics g){
-			
+	public void paintComponent(Graphics g){	
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 		
 //		g.setColor(Color.BLUE);
-//		g.fillRect(400, 300, 300, 300);
-//		
-//		g.setColor(new Color(190,81,215));
-//		g.fillRect(205, 200, 100, 100);
-		
-		
+		g.fillRect(400, 300, 300, 300);		
+		g.setColor(new Color(190,81,215));
+		g.fillRect(205, 200, 100, 100);
 		
 	}
 	
@@ -76,18 +73,97 @@ public class Canvas extends JPanel{
 		Box horizontal5 = Box.createHorizontalBox();
 		Box verticalBox = Box.createVerticalBox();
 		
-		add = new JLabel("Add");	
-		
+		add = new JLabel("Add");			
 		Rect = new JButton("Rect");	
-		Oval = new JButton("Oval");
-		Text = new JButton("Text");		
-		SetColor = new JButton("Set Color");	
+		Rect.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		Oval = new JButton("Oval");	
+		Oval.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		Text = new JButton("Text");			
+		Text.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		SetColor = new JButton("Set Color");		
+		SetColor.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		text = new JTextField("",10);
 		text.setMaximumSize(text.getPreferredSize());
-		EdwardianScript = new JButton("Edwardian Script");
+		
+		EdwardianScript = new JButton("Edwardian Script");	
+		EdwardianScript.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		moveToFront = new JButton("Move To Front");
-		moveToBack = new JButton("Move To Back");	
-		removeShape = new JButton("Remove Shape");
+		moveToFront.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		moveToBack = new JButton("Move To Back");
+		moveToBack.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		removeShape = new JButton("Remove Shape");	
+		removeShape.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
 		JPanel tableLayout = new JPanel();
 		tableLayout.setLayout(new GridLayout(0,4));
@@ -96,6 +172,8 @@ public class Canvas extends JPanel{
 		JLabel y = new JLabel("Y");
 		JLabel width = new JLabel("Width");
 		JLabel height = new JLabel("Height");
+		
+		
 		
 		tableLayout.add(x);			
 		tableLayout.add(y);
