@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 
 public class DLine extends DShape{
 
@@ -6,4 +7,8 @@ public class DLine extends DShape{
 		// TODO Auto-generated constructor stub
 	}
 
-}
+	@Override
+	public void paintComponent(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}}

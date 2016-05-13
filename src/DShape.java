@@ -1,53 +1,84 @@
 import java.awt.*;
 
-public class DShape {
+public abstract class DShape {
 	
-	int x; 
-	int y; 
-	int width;
-	int height;
-	Color color;
+	private DShapeModel dshapemodel;
+	boolean choose = false;
+	public int dimension = 30;
 	
-	// Constructor
-	public DShape(int x, int y, int width, int height)
-	{
-		x = 0; 
-		y = 0;
-		width = 0;
-		height = 0;
-		color = Color.GRAY;
+	
+	
+	public void paintComponent(Graphics g){
+		System.out.println("COM E???");
+		// if true drawing
+		if(choose) drawing(g);
 	}
 
-	public int getX() {
-		return x;
+
+
+	private void drawing(Graphics g) {
+		int x,y;
+		int x1, y1;
+		int x2, y2;
+		int x3, y3;
+		
+		x = this.dshapemodel.getX();
+		y = this.dshapemodel.getY();
+		
+		x1 = this.dshapemodel.getX();
+		y1 = this.dshapemodel.getY() + dshapemodel.getHeight();
+		
+		x2 = this.dshapemodel.getX() + dshapemodel.getWidth();
+		y2 = this.dshapemodel.getY();
+		
+		x3 = this.dshapemodel.getX() + dshapemodel.getWidth();
+		y3 = this.dshapemodel.getY() + dshapemodel.getHeight();
+		
+		g.setColor(Color.GRAY);
+		// TODO Auto-generated method stub
+		
+		g.drawRect(x, y, dimension, dimension);
+		g.fillRect(x, y, dimension, dimension);
+		
+		g.drawRect(x1, y1, dimension, dimension);
+		g.fillRect(x1, y1, dimension, dimension);
+		
+		g.drawRect(x2, y2, dimension, dimension);
+		g.fillRect(x2, y2, dimension, dimension);
+		
+		g.drawRect(x3, y3, dimension, dimension);
+		g.fillRect(x3, y3, dimension, dimension);
 	}
 
-	public void setX(int x) {
-		this.x = x;
+
+
+	public DShapeModel getDshapemodel() {
+		return dshapemodel;
 	}
 
-	public int getY() {
-		return y;
+
+
+	public void setDshapemodel(DShapeModel dshapemodel) {
+		this.dshapemodel = dshapemodel;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+
+
+	public boolean isChoose() {
+		return choose;
 	}
 
-	public int getWidth() {
-		return width;
-	}
 
-	public void setWidth(int width) {
-		this.width = width;
-	}
 
-	public int getHeight() {
-		return height;
+	public void setChoose(boolean choose) {
+		this.choose = choose;
 	}
+	
 
-	public void setHeight(int height) {
-		this.height = height;
-	}
+	
 
+	
+
+	
+	
 }
