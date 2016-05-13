@@ -24,15 +24,13 @@ public class Canvas extends JPanel{
 	public void addShape(DShape shape){
 		System.out.println("3");
 		shapes.add(shape);
-		System.out.println(" repaint is not working? ");
 		repaint();
 		System.out.println(" DOWN");
 	}
 	
 	public void paintComponent(Graphics g){
-		System.out.println(" WHY NOT COME IT?? ");
+		System.out.println("4");
 		super.paintComponent(g);
-//		g.fillRect(10, 10, 10, 10);
 		for(DShape shape : shapes){
 			shape.paintComponent(g);
 		}

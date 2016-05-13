@@ -81,8 +81,7 @@ public class Whiteboard extends JFrame {
 				// TODO Auto-generated method stub
 				DOval doval = new DOval();
 				System.out.println( doval + " Oval ? ");
-				
-				
+				canvas.addShape(doval);
 			}
 			
 		});

@@ -26,8 +26,8 @@ public class DRect extends DShape {
 		System.out.println(" 2 ");
 		dRectModel.setX(100);
 		dRectModel.setY(100);
-		dRectModel.setWidth(50);
-		dRectModel.setHeight(50);
+		dRectModel.setWidth(100);
+		dRectModel.setHeight(100);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -47,10 +47,5 @@ public class DRect extends DShape {
 	public Color getColor()
 	{
 		return this.dRectModel.getColor();
-	}
-	
-	public DRectModel getShapeModel(){
-		System.out.println(" ?? " );
-		return dRectModel;
 	}
 }
