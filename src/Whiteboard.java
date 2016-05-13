@@ -67,9 +67,8 @@ public class Whiteboard extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				 DRect drect = new DRect();
-				 System.out.println( rect + " come in? ");
+				 System.out.println( rect + " Drect ? ");
 				 canvas.addShape(drect);
-
 			}
 			
 		});
@@ -80,6 +79,9 @@ public class Whiteboard extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				DOval doval = new DOval();
+				System.out.println( doval + " Oval ? ");
+				
 				
 			}
 			
