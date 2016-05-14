@@ -36,20 +36,20 @@ public abstract class DShape {
 		x3 = this.dshapemodel.getX() + dshapemodel.getWidth();
 		y3 = dshapemodel.getY() + dshapemodel.getHeight();
 		
-		g.setColor(Color.RED);
+		g.setColor(Color.BLACK);
 		// TODO Auto-generated method stub
 		
-		g.drawRect(x-1, y-1, pointer, pointer);
-		g.fillRect(x-1, y-1, pointer, pointer);
+		g.drawRect(x-5, y-5, pointer, pointer);
+		g.fillRect(x-5, y-5, pointer, pointer);
 		
-		g.drawRect(x1-1, y1-1, pointer, pointer);
-		g.fillRect(x1-1, y1-1, pointer, pointer);
+		g.drawRect(x1-5, y1-5, pointer, pointer);
+		g.fillRect(x1-5, y1-5, pointer, pointer);
 		
-		g.drawRect(x2-1, y2-1, pointer, pointer);
-		g.fillRect(x2-1, y2-1, pointer, pointer);
+		g.drawRect(x2-5, y2-5, pointer, pointer);
+		g.fillRect(x2-5, y2-5, pointer, pointer);
 		
-		g.drawRect(x3-1, y3-1, pointer, pointer);
-		g.fillRect(x3-1, y3-1, pointer, pointer);
+		g.drawRect(x3-5, y3-5, pointer, pointer);
+		g.fillRect(x3-5, y3-5, pointer, pointer);
 	}
 
 
@@ -192,7 +192,7 @@ public abstract class DShape {
 		dshapemodel.setWidth(dshapemodel.getWidth() + diffX);
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
-	public void dragAnchorTree(int x, int y){
+	public void dragAnchorThree(int x, int y){
 		System.out.println("drag three");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY, originY, originX;

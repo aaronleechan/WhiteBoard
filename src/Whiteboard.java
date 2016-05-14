@@ -14,6 +14,7 @@ public class Whiteboard extends JFrame
 {
 	private Canvas canvas;
 	private JPanel controlCenter;
+	private ColorPicker cp = new ColorPicker();
 	
 	public static void main (String[]args) 
 	{
@@ -101,48 +102,30 @@ public class Whiteboard extends JFrame
 		JLabel add = new JLabel("Add");
 
 		JButton rect = new JButton("Rect");
-		rect.addActionListener(new ActionListener()
+		rect.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				 DRect drect = new DRect();
-				 System.out.println( drect + " Drect ? ");
-				 canvas.addShape(drect);
-			}
+			DRect drect = new DRect();
+			canvas.addShape(drect);
 		});
 		
 		JButton oval = new JButton("Oval");
-		oval.addActionListener(new ActionListener()
+		oval.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DOval doval = new DOval();
-				System.out.println( doval + " Oval ? ");
-				canvas.addShape(doval);
-			}
+			DOval doval = new DOval();
+			canvas.addShape(doval);
 		});
 		
 		JButton line = new JButton("Line");
-		line.addActionListener(new ActionListener()
+		line.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub	
-			}
-			
+			DLine dLin = new DLine();
+			canvas.addShape(dLin);
 		});
 		
 		JButton text = new JButton("Text");
-		text.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub
-			}
-			
+		text.addActionListener(e ->
+		{
+			//TODO: add functionality
 		});
 		
 		addRow.add(add);
@@ -163,13 +146,9 @@ public class Whiteboard extends JFrame
 		Box addRow = Box.createHorizontalBox();
 		
 		JButton setColor = new JButton("Set Color");
-		setColor.addActionListener(new ActionListener()
+		setColor.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub
-			}
+			cp.createFrame();
 		});
 		
 		addRow.add(setColor);
@@ -189,14 +168,11 @@ public class Whiteboard extends JFrame
 		textEntry.setMaximumSize(textEntry.getPreferredSize());
 
 		JButton edwardianScript = new JButton("Edwardian Script");
-		edwardianScript.addActionListener(new ActionListener()
+		edwardianScript.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub		
-			}
+			//TODO: add functionality
 		});
+
 		textBox.add(textEntry);
 		textBox.add(edwardianScript);
 		
@@ -212,33 +188,22 @@ public class Whiteboard extends JFrame
 		Box moveBox = Box.createHorizontalBox();
 		
 		JButton moveToFront = new JButton("Move To Front");
-		moveToFront.addActionListener(new ActionListener()
+		moveToFront.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub
-			}
+			//TODO: add functionality
 		});
 		
 		JButton moveToBack = new JButton("Move To Back");
-		moveToBack.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub	
-			}
+		moveToBack.addActionListener(e ->
+		{
+			//TODO: add functionality
 		});
 		
 		JButton removeShape = new JButton("Remove Shape");	
-		removeShape.addActionListener(new ActionListener()
+		removeShape.addActionListener(e ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				// TODO Auto-generated method stub
-			}
+			DShape ds = canvas.getSelectedShape();
+			canvas.removeShape(ds);
 		});
 		
 		moveBox.add(moveToFront);
