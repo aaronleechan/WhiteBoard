@@ -1,4 +1,4 @@
-import java.awt.Color;
+/*import java.awt.Color;
 
 public class DLineModel extends DShapeModel{
 
@@ -8,3 +8,4 @@ public class DLineModel extends DShapeModel{
 	}
 
 }
+*/

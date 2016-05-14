@@ -13,18 +13,6 @@ public class Canvas extends JPanel{
 	private ArrayList<DShape> allShapes = new ArrayList<DShape>();
 	private DShape selectedShape;
 	
-	// Select the shape 
-	
-	public DShape getSelectedShape() {
-		return selectedShape;
-	}
-
-
-	public void setSelectedShape(DShape selectedShape) {
-		this.selectedShape = selectedShape;
-	}
-
-
 	public Canvas(){
 		displayCanvas();
 		
@@ -92,6 +80,14 @@ public class Canvas extends JPanel{
 		});
 	}
 	
+	// Select the shape 
+	public DShape getSelectedShape() {
+		return selectedShape;
+	}
+
+	public void setSelectedShape(DShape selectedShape) {
+		this.selectedShape = selectedShape;
+	}
 	
 	public void displayCanvas(){
 		setPreferredSize(new Dimension(400, 400));

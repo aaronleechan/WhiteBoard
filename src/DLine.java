@@ -1,4 +1,4 @@
-import java.awt.Graphics;
+/*import java.awt.Graphics;
 
 public class DLine extends DShape{
 
@@ -12,3 +12,4 @@ public class DLine extends DShape{
 		// TODO Auto-generated method stub
 		
 	}}
+*/
