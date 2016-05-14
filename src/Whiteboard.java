@@ -1,8 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The main class of the whiteboard application.
@@ -194,13 +194,31 @@ public class Whiteboard extends JFrame
 		JButton moveToFront = new JButton("Move To Front");
 		moveToFront.addActionListener(e ->
 		{
-			//TODO: add functionality
+			ArrayList<DShape> aL = canvas.getShapeList();
+			DShape ds = canvas.getSelectedShape();
+			for (int i = 0; i < aL.size() - 1; i++)
+			{
+				if (aL.get(i) == ds)
+					Collections.swap(aL, i, i + 1);
+			}
+
+			canvas.updateShapeList(aL);
+			repaint();
 		});
 		
 		JButton moveToBack = new JButton("Move To Back");
 		moveToBack.addActionListener(e ->
 		{
-			//TODO: add functionality
+			ArrayList<DShape> aL = canvas.getShapeList();
+			DShape ds = canvas.getSelectedShape();
+			for (int i = 1; i < aL.size(); i++)
+			{
+				if (aL.get(i) == ds)
+					Collections.swap(aL, i, 0);
+			}
+
+			canvas.updateShapeList(aL);
+			repaint();
 		});
 		
 		JButton removeShape = new JButton("Remove Shape");	

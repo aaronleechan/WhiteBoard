@@ -148,4 +148,14 @@ public class Canvas extends JPanel
 		}
 		return null;
 	}
+
+	ArrayList<DShape> getShapeList()
+	{
+		return allShapes;
+	}
+
+	void updateShapeList(ArrayList<DShape> list)
+	{
+		allShapes = list;
+	}
 }
