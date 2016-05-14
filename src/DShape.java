@@ -6,12 +6,12 @@ public abstract class DShape {
 	boolean choose;
 	static int ANCHORSIZE = 20;
 	public abstract Color getColor();
-	public int dimension = 30;
+	public int pointer = 10;
 	
 	
 	
 	public void paintComponent(Graphics g){
-		System.out.println("COM E???");
+		System.out.println("COME???");
 		// if true drawing
 		if(choose) drawing(g);
 	}
@@ -34,22 +34,22 @@ public abstract class DShape {
 		y2 = this.dshapemodel.getY();
 		
 		x3 = this.dshapemodel.getX() + dshapemodel.getWidth();
-		y3 = this.dshapemodel.getY() + dshapemodel.getHeight();
+		y3 = dshapemodel.getY() + dshapemodel.getHeight();
 		
-		g.setColor(Color.GRAY);
+		g.setColor(Color.RED);
 		// TODO Auto-generated method stub
 		
-		g.drawRect(x, y, dimension, dimension);
-		g.fillRect(x, y, dimension, dimension);
+		g.drawRect(x-1, y-1, pointer, pointer);
+		g.fillRect(x-1, y-1, pointer, pointer);
 		
-		g.drawRect(x1, y1, dimension, dimension);
-		g.fillRect(x1, y1, dimension, dimension);
+		g.drawRect(x1-1, y1-1, pointer, pointer);
+		g.fillRect(x1-1, y1-1, pointer, pointer);
 		
-		g.drawRect(x2, y2, dimension, dimension);
-		g.fillRect(x2, y2, dimension, dimension);
+		g.drawRect(x2-1, y2-1, pointer, pointer);
+		g.fillRect(x2-1, y2-1, pointer, pointer);
 		
-		g.drawRect(x3, y3, dimension, dimension);
-		g.fillRect(x3, y3, dimension, dimension);
+		g.drawRect(x3-1, y3-1, pointer, pointer);
+		g.fillRect(x3-1, y3-1, pointer, pointer);
 	}
 
 
@@ -97,12 +97,16 @@ public abstract class DShape {
 	
 	public int isAnchorChosen(int x, int y){
 		if(isAnchorOne(x,y)){
+			System.out.println("Firt");
 			return 1;
 		}else if(isAnchorTwo(x,y)){
+			System.out.println("Second");
 			return 2;
-		}else if(isAnchorTree(x,y)){
+		}else if(isAnchorThree(x,y)){
+			System.out.println("Three");
 			return 3;
 		}else if(isAnchorFour(x,y)){
+			System.out.println("Four");
 			return 4;
 		}
 		return 0;
@@ -124,7 +128,7 @@ public abstract class DShape {
 		else
 			return false;
 	}
-	public boolean isAnchorTree(int x, int y){
+	public boolean isAnchorThree(int x, int y){
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
 		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
@@ -164,6 +168,7 @@ public abstract class DShape {
 	}
 	
 	public void dragAnchorOne(int x, int y){
+		System.out.println("drag one");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY;
 		preX = shapemodel.getX();
@@ -175,6 +180,7 @@ public abstract class DShape {
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
 	public void dragAnchorTwo(int x, int y){
+		System.out.println("drag two");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY, originX;
 		originX = shapemodel.getX();
@@ -187,6 +193,7 @@ public abstract class DShape {
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
 	public void dragAnchorTree(int x, int y){
+		System.out.println("drag three");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY, originY, originX;
 		originX = shapemodel.getX();
@@ -200,6 +207,7 @@ public abstract class DShape {
 		dshapemodel.setHeight(shapemodel.getHeight() + diffY);
 	}
 	public void dragAnchorFour(int x, int y){
+		System.out.println("drag four");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY,originY, originX;
 		originX = shapemodel.getX();

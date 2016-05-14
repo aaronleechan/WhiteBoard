@@ -75,16 +75,12 @@ public class Canvas extends JPanel{
 							else if (anchorNumber == 2) s.dragAnchorTwo(x, y);
 							else if (anchorNumber == 3) s.dragAnchorTree(x, y);
 							else if (anchorNumber == 4) s.dragAnchorFour(x, y);
-							
-							
 						}else{
 							s.moveShapeTo(e.getX(), e.getY());
 						}
 						repaint();
-						
 					}
-				}
-				
+				}	
 			}
 
 			@Override
