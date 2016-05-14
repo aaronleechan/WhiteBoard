@@ -128,7 +128,7 @@ public class Canvas extends JPanel
 		allShapes.remove(shape);
 		repaint();
 	}
-	
+
 	public void paintComponent(Graphics g)
 	{
 		System.out.println("4");

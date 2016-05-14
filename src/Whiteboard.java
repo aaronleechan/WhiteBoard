@@ -2,8 +2,6 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +12,6 @@ public class Whiteboard extends JFrame
 {
 	private Canvas canvas;
 	private JPanel controlCenter;
-	private ColorPicker cp = new ColorPicker();
 	
 	public static void main (String[]args) 
 	{
@@ -148,7 +145,14 @@ public class Whiteboard extends JFrame
 		JButton setColor = new JButton("Set Color");
 		setColor.addActionListener(e ->
 		{
-			cp.createFrame();
+			DShape ds = canvas.getSelectedShape();
+			Color currentColor = ds.getColor();
+			Color newColor = JColorChooser.showDialog(null, "Choose a color", currentColor);
+			if (newColor != null)
+			{
+				ds.setColor(newColor);
+				repaint();
+			}
 		});
 		
 		addRow.add(setColor);

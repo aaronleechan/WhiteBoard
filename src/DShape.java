@@ -16,8 +16,6 @@ public abstract class DShape {
 		if(choose) drawing(g);
 	}
 
-
-
 	private void drawing(Graphics g) {
 		int x,y;
 		int x1, y1;
@@ -52,7 +50,10 @@ public abstract class DShape {
 		g.fillRect(x3-5, y3-5, pointer, pointer);
 	}
 
-
+	public void setColor(Color color)
+	{
+		this.dshapemodel.setColor(color);
+	}
 
 	public DShapeModel getDshapemodel() {
 		return dshapemodel;
@@ -221,12 +222,4 @@ public abstract class DShape {
 		dshapemodel.setWidth(dshapemodel.getWidth() + diffX);
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
-	
-
-	
-
-	
-
-	
-	
 }
