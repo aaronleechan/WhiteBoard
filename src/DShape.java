@@ -137,7 +137,10 @@ public abstract class DShape {
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
 		if(  x >= xAxis + dshapemodel.getWidth() - ANCHORSIZE && x <= xAxis + dshapemodel.getWidth() + ANCHORSIZE && y >= yAxis + dshapemodel.getHeight() - ANCHORSIZE && y <= yAxis + dshapemodel.getHeight() + ANCHORSIZE)
+		{
+			System.out.println("anchor4 pressed");
 			return true;
+		}
 		else
 			return false;
 	}
@@ -215,7 +218,7 @@ public abstract class DShape {
 		preY = originY + shapemodel.getHeight();
 		diffX = x - preX;
 		diffY = y - preY;
-		moveShape(x,y);
+		//moveShape(x,y);
 		dshapemodel.setWidth(dshapemodel.getWidth() + diffX);
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
