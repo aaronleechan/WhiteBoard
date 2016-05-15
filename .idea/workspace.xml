@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92ccc43e-58d8-416b-a152-922dcd6bfac9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas$1.class" afterPath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas$2.class" afterPath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas.class" afterPath="$PROJECT_DIR$/out/production/WhiteBoard/Canvas.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Canvas.java" afterPath="$PROJECT_DIR$/src/Canvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DShape.java" afterPath="$PROJECT_DIR$/src/DShape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DShapeModel.java" afterPath="$PROJECT_DIR$/src/DShapeModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DText.java" afterPath="$PROJECT_DIR$/src/DText.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DTextModel.java" afterPath="$PROJECT_DIR$/src/DTextModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Whiteboard.java" afterPath="$PROJECT_DIR$/src/Whiteboard.java" />
     </list>
     <ignored path="WhiteBoard.iws" />
@@ -33,20 +25,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Whiteboard.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Whiteboard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Whiteboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="191" column="26" selection-start-line="191" selection-start-column="26" selection-end-line="191" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="311">
+              <caret line="190" column="30" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
+              <folding>
+                <element signature="e#4258#4259#0" expanded="true" />
+                <element signature="e#4280#4281#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DText.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DText.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
+            <state relative-caret-position="-97">
               <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#1941#1942#0" expanded="true" />
@@ -67,8 +62,8 @@
       <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Canvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="163" column="5" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
+            <state relative-caret-position="296">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,9 +97,9 @@
         <option value="$PROJECT_DIR$/src/DShapeModel.java" />
         <option value="$PROJECT_DIR$/src/DShape.java" />
         <option value="$PROJECT_DIR$/src/DTextModel.java" />
+        <option value="$PROJECT_DIR$/src/DText.java" />
         <option value="$PROJECT_DIR$/src/Canvas.java" />
         <option value="$PROJECT_DIR$/src/Whiteboard.java" />
-        <option value="$PROJECT_DIR$/src/DText.java" />
       </list>
     </option>
   </component>
@@ -564,7 +559,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#4258#4259#0" expanded="true" />
+            <element signature="e#4280#4281#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -653,8 +651,8 @@
         <state relative-caret-position="206">
           <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding>
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1278#1279#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="false" />
+            <element signature="e#1278#1279#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,31 +662,15 @@
         <state relative-caret-position="-1909">
           <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
           <folding>
-            <element signature="e#1222#1223#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1222#1223#0" expanded="false" />
+            <element signature="e#1256#1257#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Canvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="163" column="5" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Whiteboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="191" column="26" selection-start-line="191" selection-start-column="26" selection-end-line="191" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
+        <state relative-caret-position="-97">
           <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
           <folding>
             <element signature="e#1941#1942#0" expanded="true" />
@@ -701,6 +683,25 @@
             <element signature="e#2204#2205#0" expanded="true" />
             <element signature="e#2245#2246#0" expanded="true" />
             <element signature="e#2287#2288#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Canvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Whiteboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="190" column="30" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
+          <folding>
+            <element signature="e#4258#4259#0" expanded="true" />
+            <element signature="e#4280#4281#0" expanded="true" />
           </folding>
         </state>
       </provider>

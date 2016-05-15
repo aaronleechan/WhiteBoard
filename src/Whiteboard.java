@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ItemEvent;
@@ -174,7 +176,23 @@ public class Whiteboard extends JFrame
 		JTextField textEntry = new JTextField(10);
 		textEntry.setMaximumSize(textEntry.getPreferredSize());
 
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		textEntry.getDocument().addDocumentListener(new DocumentListener() {
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+						canvas.setText(textEntry.getText());
+						repaint();
+				}
+
+				public void removeUpdate(DocumentEvent e) {
+					canvas.setText(textEntry.getText());
+					repaint();
+				}
+				public void changedUpdate(DocumentEvent e) {
+					repaint();
+				}
+			});
+
+				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		Font[] fonts = ge.getAllFonts();
 		String[] fontNames = new String[fonts.length];
 
