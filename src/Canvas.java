@@ -17,6 +17,7 @@ public class Canvas extends JPanel
 	public Canvas()
 	{
 		displayCanvas();
+		selectedShape = null;
 		
 		this.addMouseListener(new MouseAdapter()
 		{
@@ -24,27 +25,29 @@ public class Canvas extends JPanel
 			{
 				int x = e.getX();
 				int y = e.getY();
-				Canvas.this.selectedShape = null;
-				DShape selectedShape = locationOfShape(x,y);
-				if(selectedShape != null)
+				if(Canvas.this.selectedShape == null || Canvas.this.selectedShape.isAnchorChosen(x, y) == 0)
 				{
-					Canvas.this.selectedShape = selectedShape;
-					
-					int indexForSelectedShape = allShapes.indexOf(selectedShape);
-					
-					for(int i = 0; i < allShapes.size(); i++)
+					DShape selectedShape = locationOfShape(x,y);
+					if(selectedShape != null)
 					{
-						if( i != indexForSelectedShape)
+						Canvas.this.selectedShape = selectedShape;
+						
+						int indexForSelectedShape = allShapes.indexOf(selectedShape);
+						
+						for(int i = 0; i < allShapes.size(); i++)
 						{
-							allShapes.get(i).setSelected(false);
+							if( i != indexForSelectedShape)
+							{
+								allShapes.get(i).setSelected(false);
+							}
 						}
+	
 					}
-
-				}
-				else
-				{
-					for(DShape s : allShapes)
-						s.setSelected(false);
+					else
+					{
+						for(DShape s : allShapes)
+							s.setSelected(false);
+					}
 				}
 				repaint();
 			}
