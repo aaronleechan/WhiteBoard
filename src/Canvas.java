@@ -29,9 +29,10 @@ public class Canvas extends JPanel
 				System.out.println("select item 1");
 				int x = e.getX();
 				int y = e.getY();
-				Canvas.this.selectedShape = null;
-				DShape selectedShape = locationOfShape(x,y); // go to locationOfShape
-
+				if(Canvas.this.selectedShape == null || Canvas.this.selectedShape.isAnchorChosen(x, y) == 0)
+				{
+					Canvas.this.selectedShape = null;
+					DShape selectedShape = locationOfShape(x,y); // go to locationOfShape
 	
 					if(selectedShape != null)
 					{
@@ -47,15 +48,15 @@ public class Canvas extends JPanel
 								allShapes.get(i).setSelected(false);
 							}
 						}
-	
 					}
 					else
 					{
 						for(DShape s : allShapes)
 							s.setSelected(false);
 					}
-				
-				repaint();
+					
+					repaint();
+				}
 			}
 		});
 		
