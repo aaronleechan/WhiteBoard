@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -171,14 +172,27 @@ public class Whiteboard extends JFrame
 		JTextField textEntry = new JTextField(10);
 		textEntry.setMaximumSize(textEntry.getPreferredSize());
 
-		JButton edwardianScript = new JButton("Edwardian Script");
-		edwardianScript.addActionListener(e ->
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		Font[] fonts = ge.getAllFonts();
+		String[] fontNames = new String[fonts.length];
+
+		for (int i = 0; i < fonts.length; i++){
+			fontNames[i] = fonts[i].getFontName();
+		}
+
+		JComboBox fontChooser = new JComboBox(fontNames);
+		fontChooser.setEditable(false);
+
+		fontChooser.addItemListener(e ->
 		{
-			//TODO: add functionality
+			if (e.getStateChange() == ItemEvent.SELECTED) {
+				//   "text".setFont(new Font(fontChooser.getSelectedItem().toString(), Font.PLAIN, "size of font"));
+				//TODO: fix this once we get the text to work
+			}
 		});
 
 		textBox.add(textEntry);
-		textBox.add(edwardianScript);
+		textBox.add(fontChooser);
 		
 		return textBox;
 	}
