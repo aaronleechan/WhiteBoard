@@ -196,11 +196,9 @@ public class Whiteboard extends JFrame
 		{
 			ArrayList<DShape> aL = canvas.getShapeList();
 			DShape ds = canvas.getSelectedShape();
-			for (int i = 0; i < aL.size() - 1; i++)
-			{
-				if (aL.get(i) == ds)
-					Collections.swap(aL, i, i + 1);
-			}
+			
+			aL.remove(ds);
+			aL.add(ds);
 
 			canvas.updateShapeList(aL);
 			repaint();
@@ -211,11 +209,9 @@ public class Whiteboard extends JFrame
 		{
 			ArrayList<DShape> aL = canvas.getShapeList();
 			DShape ds = canvas.getSelectedShape();
-			for (int i = 1; i < aL.size(); i++)
-			{
-				if (aL.get(i) == ds)
-					Collections.swap(aL, i, 0);
-			}
+			
+			aL.remove(ds);
+			aL.add(0, ds);
 
 			canvas.updateShapeList(aL);
 			repaint();
