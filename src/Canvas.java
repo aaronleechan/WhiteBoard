@@ -29,6 +29,8 @@ public class Canvas extends JPanel
 				System.out.println("select item 1");
 				int x = e.getX();
 				int y = e.getY();
+				
+				//checks to see if the anchor of the selected shape is chosen
 				if(Canvas.this.selectedShape == null || Canvas.this.selectedShape.isAnchorChosen(x, y) == 0)
 				{
 					Canvas.this.selectedShape = null;
