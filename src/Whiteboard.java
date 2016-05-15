@@ -123,7 +123,8 @@ public class Whiteboard extends JFrame
 		JButton text = new JButton("Text");
 		text.addActionListener(e ->
 		{
-			//TODO: add functionality
+			DText dt = new DText();
+			canvas.addShape(dt);
 		});
 		
 		addRow.add(add);
@@ -186,7 +187,7 @@ public class Whiteboard extends JFrame
 		fontChooser.addItemListener(e ->
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED) {
-				//   "text".setFont(new Font(fontChooser.getSelectedItem().toString(), Font.PLAIN, "size of font"));
+//				"text".setFont(new Font(fontChooser.getSelectedItem().toString(), Font.PLAIN, "size of font"));
 				//TODO: fix this once we get the text to work
 			}
 		});
@@ -210,7 +211,7 @@ public class Whiteboard extends JFrame
 		{
 			ArrayList<DShape> aL = canvas.getShapeList();
 			DShape ds = canvas.getSelectedShape();
-			
+
 			aL.remove(ds);
 			aL.add(ds);
 
