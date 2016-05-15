@@ -115,7 +115,7 @@ public class Canvas extends JPanel
 	
 	public void addShape(DShape shape)
 	{
-		System.out.println("3");
+		//System.out.println("3");
 		allShapes.add(shape);
 		repaint();
 		System.out.println(" DOWN");
@@ -129,7 +129,7 @@ public class Canvas extends JPanel
 
 	public void paintComponent(Graphics g)
 	{
-		System.out.println("4");
+		//System.out.println("4");
 		super.paintComponent(g);
 		for(DShape shape : allShapes)
 			shape.paintComponent(g);

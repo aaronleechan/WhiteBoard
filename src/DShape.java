@@ -3,8 +3,8 @@ import java.awt.*;
 public abstract class DShape {
 	
 	private DShapeModel model;
-	boolean selected;
-	static int ANCHORSIZE = 10;
+	private boolean selected;
+	private static int ANCHORSIZE = 20;
 	public abstract Color getColor();
 	
 	public void paintComponent(Graphics g){
@@ -116,7 +116,10 @@ public abstract class DShape {
 		int xAxis = model.getX();
 		int yAxis = model.getY();
 		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis + model.getHeight() - ANCHORSIZE && y <= yAxis + model.getHeight() + ANCHORSIZE)
+		{
+			System.out.println("anchor3 pressed");
 			return true;
+		}
 		else
 			return false;
 	}
@@ -158,6 +161,8 @@ public abstract class DShape {
 		DShapeModel shapemodel = this.model;
 		int preX = shapemodel.getX();
 		int preY = shapemodel.getY();
+		int preEndX = shapemodel.getX() + shapemodel.getWidth();
+		int preEndY = shapemodel.getY() +  + shapemodel.getHeight();
 		int diffX = (preX - x);
 		int diffY = (preY - y);
 		moveShape(x,y);
