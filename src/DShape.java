@@ -62,6 +62,10 @@ public abstract class DShape {
 	{
 		this.selected = selected;
 	}
+
+	public Rectangle getBounds() {
+		return model.getTheBounds();
+	}
 	
 	public void moveShape(int x, int y){
 		model.setX(x);

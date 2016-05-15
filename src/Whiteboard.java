@@ -188,8 +188,8 @@ public class Whiteboard extends JFrame
 		fontChooser.addItemListener(e ->
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED) {
-//				"text".setFont(new Font(fontChooser.getSelectedItem().toString(), Font.PLAIN, "size of font"));
-				//TODO: fix this once we get the text to work
+				canvas.setFont(fontChooser.getSelectedItem().toString());
+				repaint();
 			}
 		});
 

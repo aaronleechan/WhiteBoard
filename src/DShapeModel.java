@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 // store a conceptual bounds rectangle define by 4 ints: x,y,width and height and a Color
 public class DShapeModel {
+	private Rectangle r;
 	private int x;
 	private int y;
 	private int width;
@@ -22,6 +23,7 @@ public class DShapeModel {
 		this.x2 = 0;
 		this.y2 = 0;
 		this.color = color.GRAY;
+		r = new Rectangle(x, y, width, height);
 	}
 
 	public int getX() {
@@ -78,6 +80,10 @@ public class DShapeModel {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	public Rectangle getTheBounds() {
+		return r.getBounds();
 	}
 	
 	public ArrayList<Object> getModelList(){

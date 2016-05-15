@@ -158,6 +158,11 @@ public class Canvas extends JPanel
 		return null;
 	}
 
+	public void setFont(String font) {
+		if (getSelectedShape() instanceof DText)
+			((DText) getSelectedShape()).setFontName(font);
+	}
+
 	ArrayList<DShape> getShapeList()
 	{
 		return allShapes;
