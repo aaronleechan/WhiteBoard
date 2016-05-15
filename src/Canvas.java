@@ -21,17 +21,23 @@ public class Canvas extends JPanel
 		
 		this.addMouseListener(new MouseAdapter()
 		{
+			// Select the Item
+			
 			public void mousePressed(MouseEvent e)
 			{
+				
+				System.out.println("select item 1");
 				int x = e.getX();
 				int y = e.getY();
-				if(Canvas.this.selectedShape == null || Canvas.this.selectedShape.isAnchorChosen(x, y) == 0)
-				{
-					DShape selectedShape = locationOfShape(x,y);
+				Canvas.this.selectedShape = null;
+				DShape selectedShape = locationOfShape(x,y); // go to locationOfShape
+
+	
 					if(selectedShape != null)
 					{
+						selectedShape.setSelected(true);
 						Canvas.this.selectedShape = selectedShape;
-						
+						System.out.println( " selected shape 3");
 						int indexForSelectedShape = allShapes.indexOf(selectedShape);
 						
 						for(int i = 0; i < allShapes.size(); i++)
@@ -48,7 +54,7 @@ public class Canvas extends JPanel
 						for(DShape s : allShapes)
 							s.setSelected(false);
 					}
-				}
+				
 				repaint();
 			}
 		});
@@ -58,6 +64,7 @@ public class Canvas extends JPanel
 			@Override
 			public void mouseDragged(MouseEvent e)
 			{
+				System.out.println( " move item step 1");
 				int x = e.getX();
 				int y = e.getY();
 				
@@ -65,10 +72,12 @@ public class Canvas extends JPanel
 				{
 					if(s.isSelected())
 					{
+						// Handle when item move 
 						int anchorNumber = s.isAnchorChosen(x,y);
 
 						if(anchorNumber != 0)
 						{
+							System.out.println(" move item step 2");
 							if(anchorNumber == 1)
 								s.dragAnchorOne(x, y);
 							else if (anchorNumber == 2)
@@ -137,6 +146,7 @@ public class Canvas extends JPanel
 	
 	public DShape locationOfShape(int x, int y)
 	{
+		System.out.println("selected 2 in canvas");
 		for(int i = allShapes.size() - 1; i >= 0; i--)
 		{
 			if(allShapes.get(i).containsPoint(x,y))
