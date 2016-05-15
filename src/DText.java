@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.LineMetrics;
 
 public class DText extends DShape
 {
@@ -31,25 +33,27 @@ public class DText extends DShape
         h = dtModel.getHeight();
         g.setColor(dtModel.getColor());
         g.drawRect(x, y, w, h);
-        super.paintComponent(g);
 
-        computeFont(g); //TODO: is this how to use the graphics object from paintComponent??
-
+        f = new Font("Dialog", Font.PLAIN, (int) size);
+        FontMetrics fmc = g.getFontMetrics(f);
         g.setFont(f);
+        computeFont(g);
         g.drawString(startText, dtModel.getX(), dtModel.getY() + dtModel.getHeight());
+
+        super.paintComponent(g);
     }
 
 
     public void computeFont(Graphics g)
     {
-        FontMetrics fmc = g.getFontMetrics(f); //TODO: still getting null pointer exception here
-
         size = 1.0;
-        if (fmc.getHeight() < dtModel.getHeight())
+        FontMetrics fmc = g.getFontMetrics(f);
+        while (fmc.getAscent() <= dtModel.getHeight())
         {
             size = (size * 1.10) + 1;
+            f = new Font("Dialog", Font.PLAIN, (int) size);
+            fmc = g.getFontMetrics(f);
         }
-        f = new Font("Dialog", Font.PLAIN, (int) size);
     }
 
 	public Color getColor()

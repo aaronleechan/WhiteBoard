@@ -125,6 +125,7 @@ public class Whiteboard extends JFrame
 		{
 			DText dt = new DText();
 			canvas.addShape(dt);
+			repaint();
 		});
 		
 		addRow.add(add);
