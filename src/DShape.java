@@ -3,17 +3,15 @@ import java.awt.*;
 public abstract class DShape {
 	
 	private DShapeModel dshapemodel;
-	boolean choose;
+	boolean selected;
 	static int ANCHORSIZE = 20;
 	public abstract Color getColor();
 	public int pointer = 10;
 	
-	
-	
 	public void paintComponent(Graphics g){
 		System.out.println("COME???");
 		// if true drawing
-		if(choose) drawing(g);
+		if(selected) drawing(g);
 	}
 
 	private void drawing(Graphics g) {
@@ -35,7 +33,6 @@ public abstract class DShape {
 		y3 = dshapemodel.getY() + dshapemodel.getHeight();
 		
 		g.setColor(Color.BLACK);
-		// TODO Auto-generated method stub
 		
 		g.drawRect(x-5, y-5, pointer, pointer);
 		g.fillRect(x-5, y-5, pointer, pointer);
@@ -60,30 +57,22 @@ public abstract class DShape {
 	}
 	
 	public boolean isSelected(){
-		return this.choose;
+		return this.selected;
 	}
 	
 	public void setSelected(Boolean b)
 	{
-		this.choose = b;
+		this.selected = b;
 	}
 
-
-
-	public void setDshapemodel(DShapeModel dshapemodel) {
+	public void setDshapemodel(DShapeModel dshapemodel) 
+	{
 		this.dshapemodel = dshapemodel;
 	}
 
-
-
-	public boolean isChoose() {
-		return choose;
-	}
-
-
-
-	public void setChoose(boolean choose) {
-		this.choose = choose;
+	public void setselected(boolean selected) 
+	{
+		this.selected = selected;
 	}
 	
 	public void moveShape(int x, int y){
@@ -117,22 +106,29 @@ public abstract class DShape {
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
 		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
+		{
+			System.out.println("anchor1 pressed");
 			return true;
+		}
 		else
 			return false;
 	}
-	public boolean isAnchorTwo(int x, int y){
+	public boolean isAnchorTwo(int x, int y)
+	{
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
-		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
+		if( x >= xAxis + dshapemodel.getWidth() - ANCHORSIZE && x <= xAxis + dshapemodel.getWidth() + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
+		{
+			System.out.println("anchor2 pressed");
 			return true;
+		}
 		else
 			return false;
 	}
 	public boolean isAnchorThree(int x, int y){
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
-		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
+		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis + dshapemodel.getHeight() - ANCHORSIZE && y <= yAxis + dshapemodel.getHeight() + ANCHORSIZE)
 			return true;
 		else
 			return false;
@@ -140,47 +136,48 @@ public abstract class DShape {
 	public boolean isAnchorFour(int x, int y){
 		int xAxis = dshapemodel.getX();
 		int yAxis = dshapemodel.getY();
-		if( x >= xAxis - ANCHORSIZE && x <= xAxis + ANCHORSIZE && y >= yAxis - ANCHORSIZE && y <= yAxis + ANCHORSIZE)
+		if(  x >= xAxis + dshapemodel.getWidth() - ANCHORSIZE && x <= xAxis + dshapemodel.getWidth() + ANCHORSIZE && y >= yAxis + dshapemodel.getHeight() - ANCHORSIZE && y <= yAxis + dshapemodel.getHeight() + ANCHORSIZE)
 			return true;
 		else
 			return false;
 	}
-
-
 
 	public boolean containsPoint(int x, int y) {
 		DShapeModel model = this.dshapemodel;
 		if(model != null){
 			int h = model.getHeight();
 			int w = model.getWidth();
-			if(x>=model.getX() && x <= model.getX() + w && y>= model.getY() && y <= model.getY() + h){
+			if(x >= model.getX() && x <= model.getX() + w && y>= model.getY() && y <= model.getY() + h)
+			{
 				this.setSelected(true);
 				return true;
 			}
 			this.setSelected(false);
 		}
-		// TODO Auto-generated method stub
 		return false;
 	}
-	private void setSelected(boolean b) {
-		this.choose= b;
-		// TODO Auto-generated method stub
+	
+	private void setSelected(boolean b) 
+	{
+		this.selected = b;
 		
 	}
 	
-	public void dragAnchorOne(int x, int y){
+	public void dragAnchorOne(int x, int y)
+	{
 		System.out.println("drag one");
 		DShapeModel shapemodel = this.dshapemodel;
-		int preX, preY,diffX, diffY;
-		preX = shapemodel.getX();
-		preY = shapemodel.getY();
-		diffX = (preX - x);
-		diffY = (preY - y);
+		int preX = shapemodel.getX();
+		int preY = shapemodel.getY();
+		int diffX = (preX - x);
+		int diffY = (preY - y);
 		moveShape(x,y);
 		dshapemodel.setWidth(dshapemodel.getWidth() + diffX);
 		dshapemodel.setHeight(dshapemodel.getHeight() + diffY);
 	}
-	public void dragAnchorTwo(int x, int y){
+	
+	public void dragAnchorTwo(int x, int y)
+	{
 		System.out.println("drag two");
 		DShapeModel shapemodel = this.dshapemodel;
 		int preX, preY,diffX, diffY, originX;

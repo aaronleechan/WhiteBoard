@@ -28,9 +28,7 @@ public class Canvas extends JPanel
 				DShape selectedShape = locationOfShape(x,y);
 				if(selectedShape != null)
 				{
-					selectedShape.setSelected(true);
 					Canvas.this.selectedShape = selectedShape;
-					System.out.println( "arrived?");
 					
 					int indexForSelectedShape = allShapes.indexOf(selectedShape);
 					
@@ -43,7 +41,7 @@ public class Canvas extends JPanel
 					}
 
 				}
-				else if (selectedShape == null)
+				else
 				{
 					for(DShape s : allShapes)
 						s.setSelected(false);
@@ -57,19 +55,16 @@ public class Canvas extends JPanel
 			@Override
 			public void mouseDragged(MouseEvent e)
 			{
-				int x;
-				int y;
-
-				x = e.getX();
-				y = e.getY();
+				int x = e.getX();
+				int y = e.getY();
 				
 				for(DShape s : allShapes)
 				{
 					if(s.isSelected())
 					{
-						int anchorNumber;
+						int anchorNumber = s.isAnchorChosen(x,y);
 
-						if((anchorNumber = s.isAnchorChosen(x,y)) != 0)
+						if(anchorNumber != 0)
 						{
 							if(anchorNumber == 1)
 								s.dragAnchorOne(x, y);
@@ -81,7 +76,7 @@ public class Canvas extends JPanel
 								s.dragAnchorFour(x, y);
 						}
 						else
-							s.moveShapeTo(e.getX(), e.getY());
+							s.moveShapeTo(x, y);
 
 						repaint();
 					}
@@ -139,12 +134,10 @@ public class Canvas extends JPanel
 	
 	public DShape locationOfShape(int x, int y)
 	{
-		DShape dshape;
 		for(int i = allShapes.size() - 1; i >= 0; i--)
 		{
-			dshape = allShapes.get(i);
-			if(dshape.containsPoint(x,y))
-				return dshape;
+			if(allShapes.get(i).containsPoint(x,y))
+				return allShapes.get(i);
 		}
 		return null;
 	}
