@@ -4,7 +4,7 @@ public abstract class DShape {
 	
 	private DShapeModel model;
 	private boolean selected;
-	private static int ANCHORSIZE = 20;
+	static int ANCHORSIZE = 20;
 	public abstract Color getColor();
 	
 	public void paintComponent(Graphics g){

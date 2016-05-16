@@ -32,14 +32,14 @@ public class DText extends DShape
         w = dtModel.getWidth();
         h = dtModel.getHeight();
 
-        g.drawRect(x, y, w, h);
+//        g.drawRect(x, y, w, h);
 //        f = new Font(fontName, Font.PLAIN, (int) size);
         f = computeFont(g);
         computeFont(g);
         g.setFont(f);
         g.setColor(dtModel.getColor());
         Shape clip = g.getClip();
-//        g.setClip(clip.getBounds().intersection(dtModel.getTheBounds()));
+        g.setClip(clip.getBounds().intersection(dtModel.getTheBounds()));
 
 
 //        g.drawRect(x, y, w, h);
@@ -47,8 +47,8 @@ public class DText extends DShape
 //        f = new Font(fontName, Font.PLAIN, (int) size);
 //        g.setFont(f);
 //        computeFont(g);
-        g.drawString(theMessage, dtModel.getX(), dtModel.getY() + dtModel.getHeight());
-//        g.setClip(clip);
+        g.drawString(theMessage, dtModel.getX(), dtModel.getTheBounds().y + dtModel.getHeight());
+        g.setClip(clip);
         super.paintComponent(g);
 
 
@@ -65,7 +65,7 @@ public class DText extends DShape
         {
             prevSize = size;
             size = (size * 1.10) + 1;
-            f = new Font(getFontName(), Font.PLAIN, (int) size);
+            f = new Font(getFontName(), Font.PLAIN, (int) prevSize);
             fmc = g.getFontMetrics(f);
         }
         return f;

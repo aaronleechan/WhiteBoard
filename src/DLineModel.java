@@ -1,50 +1,49 @@
-import java.awt.Color;
+import java.awt.*;
 
 public class DLineModel extends DShapeModel{
-	
-	private int startingPoint;
-	private int endingPoint;
+
+	private Point p1;
+	private Point p2;
 	
 	public DLineModel(){
 		System.out.println(" come in DLine Model");
-		startingPoint = 0;
-		endingPoint = 0;
+		p1 = new Point(0, 0);
+		p2 = new Point(0, 0);
 	}
 
-	public int getstartingPoint() {
-		return startingPoint;
+	public Point getP1() {
+		return p1;
 	}
 
-	public void setstartingPoint(int startingPoint) {
-		this.startingPoint = startingPoint;
+	public void setP1(Point thePoint) {
+		p1 = new Point(thePoint);
 	}
 
-	public int getendingPoint() {
-		return endingPoint;
+	public Point getP2() {
+		return p2;
 	}
 
-	public void setendingPoint(int endingPoint) {
-		this.endingPoint = endingPoint;
+	public void setP2(Point thePoint) {
+		p2 = new Point(thePoint);
 	}
-	
+
 	public int getWidth(){
-		return 0;
+		return Math.abs(p1.x - p2.x);
 	}
 	
 	public int getHeight(){
-		return 0;
+		return Math.abs(p1.y - p2.y);
 	}
 	
 	public double getSlope(){
-		System.out.println("getendingPoint: " + getendingPoint() + ", getY(): " + getY() + 
-							", getstartingPoint: " +  getstartingPoint() + ", getX: " + getX() );
+		System.out.println("getendingPoint: " + getP2() + ", getY(): " + getY() +
+							", getstartingPoint: " +  getP1() + ", getX: " + getX() );
 		// find slope = endingPoint - y1 / startingPoint -x1
 		// getX and getY get from DShapeModel
 		double result = 0;
-		result = ( ((double)getendingPoint() - (double)getY()) / ((double)getstartingPoint() - (double) getX()) );
+		result = (getP2().y - getP1().y) / (getP2().x - getP1().x);
 		System.out.println(" RESULT : " + result);
 		return result;
 	}
-	
 
 }
