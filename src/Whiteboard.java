@@ -3,6 +3,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +17,9 @@ public class Whiteboard extends JFrame
 {
 	private Canvas canvas;
 	private JPanel controlCenter;
+	private JTable table;
+	private Box tableBox;
+	private TableModel myTable = new TableModel();
 	
 	public static void main (String[]args) 
 	{
@@ -106,6 +111,7 @@ public class Whiteboard extends JFrame
 		{
 			DRect drect = new DRect();
 			canvas.addShape(drect);
+			myTable.newChanges(canvas.getShapeList());
 		});
 		
 		JButton oval = new JButton("Oval");
@@ -113,6 +119,7 @@ public class Whiteboard extends JFrame
 		{
 			DOval doval = new DOval();
 			canvas.addShape(doval);
+			myTable.newChanges(canvas.getShapeList());
 		});
 		
 		JButton line = new JButton("Line");
@@ -120,6 +127,7 @@ public class Whiteboard extends JFrame
 		{
 			DLine dLin = new DLine();
 			canvas.addShape(dLin);
+			myTable.newChanges(canvas.getShapeList());
 		});
 		
 		JButton text = new JButton("Text");
@@ -127,6 +135,7 @@ public class Whiteboard extends JFrame
 		{
 			DText dt = new DText();
 			canvas.addShape(dt);
+			myTable.newChanges(canvas.getShapeList());
 			repaint();
 		});
 		
@@ -207,6 +216,7 @@ public class Whiteboard extends JFrame
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED) {
 				canvas.setFont(fontChooser.getSelectedItem().toString());
+				myTable.newChanges(canvas.getShapeList());
 				repaint();
 			}
 		});
@@ -235,6 +245,7 @@ public class Whiteboard extends JFrame
 			aL.add(ds);
 
 			canvas.updateShapeList(aL);
+			myTable.newChanges(canvas.getShapeList());
 			repaint();
 		});
 		
@@ -248,6 +259,7 @@ public class Whiteboard extends JFrame
 			aL.add(0, ds);
 
 			canvas.updateShapeList(aL);
+			myTable.newChanges(canvas.getShapeList());
 			repaint();
 		});
 		
@@ -256,6 +268,7 @@ public class Whiteboard extends JFrame
 		{
 			DShape ds = canvas.getSelectedShape();
 			canvas.removeShape(ds);
+			myTable.newChanges(canvas.getShapeList());
 		});
 		
 		moveBox.add(moveToFront);
@@ -271,9 +284,9 @@ public class Whiteboard extends JFrame
 	 */
 	private Box getTableBox()
 	{
-		Box tableBox = Box.createHorizontalBox();
+		tableBox = Box.createHorizontalBox();
 		
-		JTable table = new JTable(new MyTableModel());
+		table = new JTable(myTable);
 		JScrollPane tableScrollPane = new JScrollPane(table);
 		tableScrollPane.setPreferredSize(new Dimension(100, 100));
 		table.setFillsViewportHeight(true);
@@ -281,48 +294,5 @@ public class Whiteboard extends JFrame
 		tableBox.add(tableScrollPane);
 		
 		return tableBox;
-	}
-	
-	/**
-	 * Creates the model that the table uses
-	 */
-	class MyTableModel extends AbstractTableModel 
-	{
-		String[] tableColumns = {"X", "Y", "Width", "Height"};
-		//TODO: placeholder values until action listeners are set up
-		int[][] tableData = 
-			{
-				{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},
-				{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},
-			};
-
-		public String getColumnName(int col) 
-		{
-			return tableColumns[col];
-		}
-		public int getRowCount() 
-		{
-			return tableData.length;
-		}
-		public int getColumnCount() 
-		{
-			return tableColumns.length;
-		}
-		public Object getValueAt(int row, int col) 
-		{
-			//TODO: fix. always getting null pointer exception so made return = 0 for now
-
-			return 0; //return tableData[row][col];
-		}
-		public void setValueAt(int value, int row, int col) 
-		{
-			tableData[row][col] = value;
-			fireTableRowsUpdated(row, col);
-			fireTableDataChanged();
-		}
-		public boolean isCellEditable(int row, int col) 
-		{
-			return false;
-		}
 	}
 }

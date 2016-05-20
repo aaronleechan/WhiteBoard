@@ -25,7 +25,6 @@ public class Canvas extends JPanel
 			
 			public void mousePressed(MouseEvent e)
 			{
-				
 				System.out.println("select item 1");
 				int x = e.getX();
 				int y = e.getY();
