@@ -41,6 +41,7 @@ public class Whiteboard extends JFrame
 		
 		createControlCenter();
 		canvas = new Canvas();
+		canvas.setWhiteBoard(this);
 		
 		this.add(canvas, BorderLayout.CENTER);
 		this.add(controlCenter,BorderLayout.WEST);
@@ -276,6 +277,11 @@ public class Whiteboard extends JFrame
 		moveBox.add(removeShape);
 		
 		return moveBox;
+	}
+	
+	public void changesMade()
+	{
+		myTable.newChanges(canvas.getShapeList());
 	}
 	
 	/**

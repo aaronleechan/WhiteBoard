@@ -13,6 +13,7 @@ public class Canvas extends JPanel
 
 	private ArrayList<DShape> allShapes = new ArrayList<DShape>();
 	private DShape selectedShape;
+	private Whiteboard board;
 
 	public Canvas()
 	{
@@ -58,6 +59,8 @@ public class Canvas extends JPanel
 					
 					repaint();
 				}
+				
+				board.changesMade();
 			}
 		});
 		
@@ -94,7 +97,9 @@ public class Canvas extends JPanel
 
 						repaint();
 					}
-				}	
+				}
+				
+				board.changesMade();
 			}
 
 			@Override
@@ -167,11 +172,16 @@ public class Canvas extends JPanel
 			((DText) getSelectedShape()).setMessage(text);
 	}
 
-	ArrayList<DShape> getShapeList()
+	public ArrayList<DShape> getShapeList()
 	{
 		return allShapes;
 	}
 
+	public void setWhiteBoard(Whiteboard board)
+	{
+		this.board = board;
+	}
+	
 	void updateShapeList(ArrayList<DShape> list)
 	{
 		allShapes = list;
