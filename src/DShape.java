@@ -1,10 +1,14 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class DShape {
 	
 	private DShapeModel model;
 	private boolean selected;
 	static int ANCHORSIZE = 20;
+	static final int KNOB_SIZE = 9;
+	ArrayList<Point> knobs;
+
 	public abstract Color getColor();
 	
 	public void paintComponent(Graphics g){
@@ -64,7 +68,7 @@ public abstract class DShape {
 	}
 
 	public Rectangle getBounds() {
-		return model.getTheBounds();
+		return model.getBounds();
 	}
 	
 	public void moveShape(int x, int y){
@@ -76,7 +80,31 @@ public abstract class DShape {
 		model.setX( x - model.getWidth() /2);
 		model.setY( y - model.getHeight()/ 2);
 	}
-	
+
+
+	public ArrayList<Point> getKnobs() {
+		Point one = new Point(model.getX(), model.getY());
+		Point two = new Point(model.getX() + model.getWidth(), model.getY());
+		Point three = new Point(model.getX(), model.getY() + model.getHeight());
+		Point four = new Point(model.getX() + model.getHeight(), model.getY() + model.getHeight());
+		knobs.add(one);
+		knobs.add(two);
+		knobs.add(three);
+		knobs.add(four);
+		return knobs;
+	}
+
+	public Rectangle getBiggerBounds()
+	{
+		return new Rectangle (model.getBounds().x - KNOB_SIZE/2, model.getBounds().y - KNOB_SIZE/2,
+				model.getBounds().width + KNOB_SIZE, model.getBounds().height + KNOB_SIZE);
+	}
+
+
+
+
+
+
 	public int isAnchorChosen(int x, int y){
 		if(isAnchorOne(x,y))
 			return 1;
@@ -165,8 +193,6 @@ public abstract class DShape {
 		DShapeModel shapemodel = this.model;
 		int preX = shapemodel.getX();
 		int preY = shapemodel.getY();
-		int preEndX = shapemodel.getX() + shapemodel.getWidth();
-		int preEndY = shapemodel.getY() +  + shapemodel.getHeight();
 		int diffX = (preX - x);
 		int diffY = (preY - y);
 		moveShape(x,y);

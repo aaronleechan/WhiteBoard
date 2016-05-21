@@ -62,7 +62,7 @@ public class DShapeModel {
 		this.color = color;
 	}
 
-	public Rectangle getTheBounds() {
+	public Rectangle getBounds() {
 		return bounds.getBounds();
 	}
 	

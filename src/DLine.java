@@ -26,28 +26,16 @@ public class DLine extends DShape
         System.out.println(" 2 ");
         dlModel.setP1(new Point(100, 100));
         dlModel.setP2(new Point(200, 200));
-//        dlModel.setX(100);
-//        dlModel.setY(100);
-//        dlModel.setX2(200);
-//        dlModel.setY2(200);
     }
 
     public void paintComponent(Graphics g)
     {
-    	System.out.println( " selected 5: point in Dline paintComponent");
-        int x1, y1, x2, y2;
-
         p1 = dlModel.getP1();
         p2 = dlModel.getP2();
 
-        x1 = (int) dlModel.getP1().getX();
-        y1 = (int) dlModel.getP1().getY();
-        x2 = (int) dlModel.getP2().getX();
-        y2 = (int) dlModel.getP2().getY();
-
         g.setColor(dlModel.getColor());
         g.drawLine(p1.x, p1.y, p2.x, p2.y);
-//        super.paintComponent(g);
+
         if(selected)drawKnobs(g);
     }
     
@@ -154,15 +142,5 @@ public class DLine extends DShape
         dlModel.setWidth(dlModel.getWidth() + diffX);
         dlModel.setHeight(dlModel.getHeight() + diffY);
     }
-
-//    @Override
-//    public void moveShapeTo(int x, int y) {
-//        p1.x += x;
-//        p1.y += y;
-//        p2.x += x;
-//        p2.y += y;
-//
-//        super.moveShapeTo(x, y);
-//    }
 }
 
